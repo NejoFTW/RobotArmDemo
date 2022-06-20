@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableExtenderScript : InteractableModuleScript
 {
-    [SerializeField] bool isExtended = false;
+    [SerializeField] bool isExtended = true;
     Animator anim;
 
     private void Awake()

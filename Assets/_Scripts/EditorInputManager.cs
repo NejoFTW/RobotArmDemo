@@ -29,6 +29,11 @@ public class EditorInputManager : MonoBehaviour
         canvasScript.CloseAllPanels();
     }
 
+    public GameObject GetCurrentSelectedObject()
+    {
+        return currentlySelectedObject;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))

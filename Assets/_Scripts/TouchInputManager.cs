@@ -10,7 +10,7 @@ public class TouchInputManager : MonoBehaviour
     RaycastHit hit;
     ArticulationJointController currentSelectedJoint = null;
     InteractableModuleScript currentInteractableObject = null;
-    GameObject currentlySelectedObject = null;
+    [SerializeField] GameObject currentlySelectedObject = null;
     [SerializeField] JoystickRobotControls joystickRobotControlScript;
     [SerializeField] MainCanvasControlsScript canvasScript;
     [SerializeField] RobotController robotControllerScript;
@@ -30,6 +30,11 @@ public class TouchInputManager : MonoBehaviour
     private void Start()
     {
         canvasScript.CloseAllPanels();
+    }
+
+    public GameObject GetCurrentSelectedObject()
+    {
+        return currentlySelectedObject;
     }
 
     private void Update()

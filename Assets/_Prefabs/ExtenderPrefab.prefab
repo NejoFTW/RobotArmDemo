@@ -222,7 +222,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   snapPoint: {fileID: 45496490}
-  isExtended: 0
+  isExtended: 1
 --- !u!95 &8813948092014875436
 Animator:
   serializedVersion: 3

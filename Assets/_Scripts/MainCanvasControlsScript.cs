@@ -59,7 +59,7 @@ public class MainCanvasControlsScript : MonoBehaviour
     public void TriggerAction(int interactableId)
     {
         Debug.Log("TriggerAction " + interactableId);
-        //partManagerScript.TriggerAction(interactableId);
+        partManagerScript.TriggerAction();
     }
 
     public void ToggleExtender(bool isUsingExtender)

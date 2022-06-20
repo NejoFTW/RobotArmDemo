@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CustomPartsManagerScript : MonoBehaviour
 {
+    [SerializeField] EditorInputManager editorInputScript;
+    [SerializeField] TouchInputManager touchInputScript;
     [SerializeField]List<GameObject> customParts;
     public List<GameObject> endPointPrefabs;
     [SerializeField] GameObject snapObject;
@@ -47,25 +49,32 @@ public class CustomPartsManagerScript : MonoBehaviour
         }
         RebuildPartChain();
     }
+
     public void NextEndPoint()
     {
         currentEndpointId++;
-        Debug.Log("NextEndPoint " + currentEndpointId);
-
         if (currentEndpointId % endPointPool.Length == 0)
         {
             currentEndpointId = 0;
         }
         RebuildPartChain();
-
     }
 
 
-    //public void TriggerAction(int interactableId)
-    //{
-    //    Debug.Log("TriggerAction : "+customParts[interactableId].name);
-    //    customParts[interactableId].GetComponent<InteractableModuleScript>().Interact();
-    //}
+    public void TriggerAction()
+    {
+        InteractableModuleScript moduleScript;
+        if (touchInputScript.enabled)
+        {
+            moduleScript= touchInputScript.GetCurrentSelectedObject().GetComponent<InteractableModuleScript>();
+        }
+        else
+        {
+            moduleScript= editorInputScript.GetCurrentSelectedObject().GetComponent<InteractableModuleScript>();
+        }
+        Debug.Log("Interacting with : " + moduleScript.gameObject.name);
+        moduleScript.Interact();
+    }
 
     void RebuildPartChain()
     {
